@@ -9,6 +9,6 @@ docker を起動
 
 ## mock_server の立ち上げ
 
-`cd mock_server`
-`yarn`
+`cd mock_server`  
+`yarn`  
 `yarn start`
