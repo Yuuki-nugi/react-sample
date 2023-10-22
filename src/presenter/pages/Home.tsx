@@ -1,6 +1,8 @@
 import { Box, Button, Container, Grid, styled } from '@mui/material';
 import React from 'react';
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 const PageTitleBox = styled('div')(({ theme }) => ({
   width: 400,
@@ -24,7 +26,12 @@ const ToProfileButton = styled(Link)(({ theme }) => ({
   lineHeight: "40px",
 }))
 
+
+
 const Home = () => {
+  const { t } = useTranslation();
+  const languageDetector = new LanguageDetector();
+
   return (
     <>
       <Grid 
@@ -35,6 +42,7 @@ const Home = () => {
         padding={8}
       >
         <PageTitleBox>ホーム</PageTitleBox>
+        <div>{t("header.greeting")}</div>
         <ToProfileButton to={`/profile/`}>
           <Box>プロフィールへ</Box>
         </ToProfileButton>
