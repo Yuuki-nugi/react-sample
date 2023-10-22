@@ -1,5 +1,11 @@
 {
-  "header": {
-    "greeting": "こんにちは"
+  "greeting": "こんにちは",
+  "sign_in": "サインイン",
+  "sign_up": "サインアップ",
+  "sign_out": "サインアウト",
+  "profile": "プロフィール",
+  "user_name": "ユーザー名",
+  "error": {
+    "not_found_user": "ユーザーが見つかりませんでした"
   }
 }

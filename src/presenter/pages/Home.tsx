@@ -16,21 +16,8 @@ const PageTitleBox = styled('div')(({ theme }) => ({
 
 }))
 
-const ToProfileButton = styled(Link)(({ theme }) => ({ 
-  width: 160,
-  height: 40,
-  marginTop: 80,
-  backgroundColor: "skyblue",
-  borderRadius: 20,
-  textAlign: "center",
-  lineHeight: "40px",
-}))
-
-
-
 const Home = () => {
   const { t } = useTranslation();
-  const languageDetector = new LanguageDetector();
 
   return (
     <>
@@ -41,11 +28,15 @@ const Home = () => {
         style={{ minHeight: '100vh' }}
         padding={8}
       >
-        <PageTitleBox>ホーム</PageTitleBox>
-        <div>{t("header.greeting")}</div>
-        <ToProfileButton to={`/profile/`}>
-          <Box>プロフィールへ</Box>
-        </ToProfileButton>
+        <h1>{t("greeting")}</h1>
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/profile"
+        >
+          {t("profile")}
+        </Button>
       </Grid>
     </>
   );

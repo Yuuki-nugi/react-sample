@@ -1,5 +1,11 @@
 {
-  "header": {
-    "greeting": "Hello"
+  "greeting": "Hello",
+  "sign_in": "Sign in",
+  "sign_out": "Sign out",
+  "sign_up": "Sign up",
+  "profile": "Profile",
+  "user_name": "User name",
+  "error": {
+    "not_found_user": "Not found user"
   }
 }
