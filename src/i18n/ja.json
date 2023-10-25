@@ -5,7 +5,12 @@
   "sign_out": "サインアウト",
   "profile": "プロフィール",
   "user_name": "ユーザー名",
+  "email": "メールアドレス",
+  "password": "パスワード",
   "error": {
-    "not_found_user": "ユーザーが見つかりませんでした"
+    "not_found_user": "ユーザーが見つかりませんでした",
+    "failed_to_sign_in": "認証に失敗しました",
+    "failed_to_sign_up": "登録に失敗しました",
+    "failed_to_sign_out": "サインアウトに失敗しました"
   }
 }

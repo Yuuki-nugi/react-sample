@@ -5,7 +5,12 @@
   "sign_up": "Sign up",
   "profile": "Profile",
   "user_name": "User name",
+  "email": "Email",
+  "password": "Password",
   "error": {
-    "not_found_user": "Not found user"
+    "not_found_user": "Not found user",
+    "failed_to_sign_in": "Failed to sign in",
+    "failed_to_sign_up": "Failed to sign up",
+    "failed_to_sign_out": "Failed to sign out"
   }
 }

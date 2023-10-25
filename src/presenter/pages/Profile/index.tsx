@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
-import { User } from '../../../domain/user';
+import { useEffect } from 'react';
 import ProfileCard from '../../components/ProfileCard';
 import { UserUseCase } from '../../../interface/useCase/userUseCase';
 import { useProfile } from './hook';
+import PrivateRoute from '../../components/PrivateRpute';
 
 type Props = {
   useCase: UserUseCase;
@@ -16,7 +15,13 @@ const Profile = ({ useCase }: Props) => {
     fetchUser();
   }, []);
 
-  return <ProfileCard user={user} />;
+  return (
+  <>
+    <PrivateRoute>
+      <ProfileCard user={user} />
+    </PrivateRoute>
+  </>
+  );
 };
 
 export default Profile;

@@ -9,14 +9,18 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import Logo from "../../logo192.png"
-import { styled } from "@mui/material/styles";
+import { useAuth } from "../hooks/useAuth";
+import { useTranslation } from "react-i18next";
  
 const setNavLinks: Array<{ text: string, url: string }> = [
-    { text: "Home", url: "/" },
-    { text: "Profile", url: "/profile" },
+  { text: "Home", url: "/" },
+  { text: "Profile", url: "/profile" },
 ];
  
 const Header: React.FC = () => {
+  const auth = useAuth();
+  const { t } = useTranslation();
+    
   return(
     <>
         <AppBar component="header" position="static" sx={{backgroundColor: "transparent"}}>
@@ -30,14 +34,30 @@ const Header: React.FC = () => {
                         </Typography>
                     </Box>
                     <Box>
-                        <List component="nav" sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+                        <List component="nav" sx={{ display: 'flex', justifyContent: 'flex-start'}}>
                             { setNavLinks.map( (navLink) => (
-                            <ListItem disablePadding>
+                            <ListItem disablePadding sx={{ width: 160}}>
                                 <ListItemButton sx={{ textAlign: 'center' }} component={Link} to={navLink.url}>
                                     <ListItemText primary={navLink.text} />
                                 </ListItemButton>
                             </ListItem>
                             ))}
+                            {
+                                auth.isAuthenticated ? (
+                                    <ListItem disablePadding sx={{ width: 160}}>
+                                        <ListItemButton sx={{ textAlign: 'center' }} onClick={auth.signOut}>
+                                            <ListItemText primary={t("sign_out")} />
+                                        </ListItemButton>
+                                    </ListItem>
+                                ) : (
+                                    <ListItem disablePadding sx={{ width: 160}}>
+                                        <ListItemButton sx={{ textAlign: 'center' }} component={Link} to={"/sign_in"}>
+                                            <ListItemText primary={t("sign_in")} />
+                                        </ListItemButton>
+                                    </ListItem>
+                                )
+                            }
+                            
                         </List>
                     </Box>
                 </Box>
