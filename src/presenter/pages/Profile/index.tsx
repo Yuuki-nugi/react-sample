@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-import { User } from '../../domain/user';
-import ProfileCard from '../components/ProfileCard';
-import { UserUseCase } from '../../interface/useCase/userUseCase';
+import { User } from '../../../domain/user';
+import ProfileCard from '../../components/ProfileCard';
+import { UserUseCase } from '../../../interface/useCase/userUseCase';
+import { useProfile } from './hook';
 
 type Props = {
   useCase: UserUseCase;
 };
 
 const Profile = ({ useCase }: Props) => {
-  const [user, setUser] = useState<User>();
+  const [user, fetchUser] = useProfile({useCase});
 
   useEffect(() => {
     fetchUser();
   }, []);
-
-  const fetchUser = async () => {
-    setUser(await useCase.fetchUser());
-  };
 
   return <ProfileCard user={user} />;
 };
