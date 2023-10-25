@@ -6,6 +6,7 @@ import UserRepositoryImpl from "../repository/userRepository";
 import UserUseCaseImpl from "../useCase/userUseCase";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import Header from "./components/Header";
 
 const userRepository = new UserRepositoryImpl(new UserDriverImpl());
 const userUseCase = new UserUseCaseImpl(userRepository);
@@ -14,10 +15,16 @@ const App = () => {
   const theme = createTheme(
     {
       palette: {
-        mode: "dark",
+        mode: "light",
+        background: {
+          default: '#000000',
+        },
         primary: {
           main: '#0084FF',
-         }
+        },
+        text: {
+          primary: '#FFFFFF',
+        },
       },
     }
   );
@@ -26,6 +33,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path={`/`} element={<Home />} />
           <Route path={`/profile/`} element={<Profile useCase={userUseCase}/>} />
